@@ -29,21 +29,34 @@ class ContactList {
         if(front==null){
             return "C001";
         }else{
-            Contact temp = front;
+            Node temp = front;
             int index=0;
             while(temp!=null){
-                temp = temp.next();
+                temp = temp.next;
                 index++;
             }String nextId = String.format("C%03d", index + 1);
 
                  return nextId;
         }
     }
+    public boolean DuplicatePhoneNumber(String PhoneNumber){
+        Node temp = front;
+        if(temp==null){
+            return false;
+        }else{
+            while(temp!=null){
+                if(temp.Contact.PhoneNumber().equals(PhoneNumber)){
+                    return true;
+                }
+                temp = temp.next;
+            }
+        }return false;
+    }
     public void SetName(int index,String newName){
-        Contact temp = front;
+        Node temp = front;
         for(int i=0;i<index;i++){
-            temp = temp.next();
-        }temp.setName(newName);
+            temp = temp.next;
+        }temp.Contact.setName(newName);
     }
    public void SetPhoneNumber(int index,String PhoneNumber){
     Contact temp = front;
@@ -458,28 +471,29 @@ public class IFriendContactOrganizer {
 
     // ==================================================== DuplicatePhoneNumber
     // ====================================================
-    public static boolean DuplicatePhoneNumber(String phoneNumber, Contact front) {
+//     public static boolean DuplicatePhoneNumber(String phoneNumber) {
 
-        // for (int i = 0; i < ContactList.GetIndex(); i++) {
-        //     if (phoneNumber.equals(ContactList.GetPhoneNumber(i))) {
-        //         return true;
-        //     }
-        // }
-        // return false;
-        if(front==null){
-            return false;
-        }else{
-        Contact temp = front;
-        while(temp!=null){
-            if(phoneNumber.equals(temp.PhoneNumber())){
-        return true;
+//         // for (int i = 0; i < ContactList.GetIndex(); i++) {
+//         //     if (phoneNumber.equals(ContactList.GetPhoneNumber(i))) {
+//         //         return true;
+//         //     }
+//         // }
+//         // return false;
         
-        }
-        temp=temp.next();
-        }
-    }
-    return false;
-}
+//         if(cList.front()==null){
+//             return false;
+//         }else{
+//         Contact temp = front;
+//         while(temp!=null){
+//             if(phoneNumber.equals(temp.PhoneNumber())){
+//         return true;
+        
+//         }
+//         temp=temp.next();
+//         }
+//     }
+//     return false;
+// }
 
     // ==================================================== Short methode
     // ====================================================
@@ -988,7 +1002,7 @@ public class IFriendContactOrganizer {
                 PhoneNumber = input.next();
                 if ((PhoneNumber.charAt(0) == '0') & (PhoneNumber.length() == 10)) {
 
-                    if (DuplicatePhoneNumber(PhoneNumber,cList.front()) == true) {
+                    if (cList.DuplicatePhoneNumber(PhoneNumber) == true) {
                         System.out.println("\tDuplicate Phone Number...");
                         System.out.print("\nDo you want to input Phone Number again (Y/N) : ");
                         char ch = input.next().charAt(0);
