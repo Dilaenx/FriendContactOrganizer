@@ -9,6 +9,14 @@ class ContactList {
     // private int Index;
     private Node front;
 
+    public boolean isNull(){
+        if(front==null){
+            return true;
+        }else{
+            return false;
+        }
+    }
+
     public void AddContact(Contact Contact) {
         // ContactListArray = new Contact[Length];
         // this.Length = Length;
@@ -16,7 +24,7 @@ class ContactList {
         // Index = 0;
         Node n1 = new Node(Contact);
         Node lNode = front;
-        if(front==null){
+        if(isNull()){
             front = n1;
         }else{
            while(lNode.next!=null){
@@ -26,7 +34,7 @@ class ContactList {
         }
     }
     public String MemberIdGenarate2(){
-        if(front==null){
+        if(isNull()){
             return "C001";
         }else{
             Node temp = front;
@@ -41,7 +49,7 @@ class ContactList {
     }
     public boolean DuplicatePhoneNumber(String PhoneNumber){
         Node temp = front;
-        if(temp==null){
+        if(isNull()){
             return false;
         }else{
             while(temp!=null){
@@ -52,6 +60,21 @@ class ContactList {
             }
         }return false;
     }
+    public int FindMember(String Contact){
+        Node temp = front;
+        int count =0;
+        while(temp!=null){
+            if(temp.Contact.Name().equals(Contact)||(temp.Contact.PhoneNumber().equals(Contact))){
+                return count;
+                
+        }
+        count++;
+        temp=temp.next;
+        
+    }
+    return -1;
+}
+
     public void SetName(int index,String newName){
         Node temp = front;
         for(int i=0;i<index;i++){
@@ -59,23 +82,42 @@ class ContactList {
         }temp.Contact.setName(newName);
     }
    public void SetPhoneNumber(int index,String PhoneNumber){
-    Contact temp = front;
+    Node temp = front;
     for(int i=0;i<index;i++){
-        temp = temp.next();
-    }temp.SetPhoneNumber(PhoneNumber);
+        temp = temp.next;
+    }temp.Contact.setPhoneNumber(PhoneNumber);
    }
    public void setCompanyName(int index,String CompanyName){
-    Contact temp = front;
+    Node temp = front;
     for(int i=0;i<index;i++){
-        temp = temp.next();
-    }temp.setCompanyName(CompanyName);
+        temp = temp.next;
+    }temp.Contact.setCompanyName(CompanyName);
    }
    public void setSalary(int index,double Salary){
-    Contact temp = front;
+    Node temp = front;
     for(int i=0;i<index;i++){
-        temp = temp.next();
-    }temp.setSalary(Salary);
+        temp = temp.next;
+    }temp.Contact.setSalary(Salary);
    }
+
+   public void DisplayMember(int index) {
+
+    Node temp = front;
+    for(int i=0;i<index;i++){
+        temp=temp.next;
+    }
+
+    System.out.printf("\n\tContactid\t  : %s\n", temp.Contact.id());
+    System.out.printf("\tName\t          : %s\n", temp.Contact.Name());
+    System.out.printf("\tPhone Number\t  : %s\n", temp.Contact.PhoneNumber());
+    System.out.printf("\tCompany Name\t  : %s\n", temp.Contact.CompanyName());
+    System.out.printf("\tSalary\t          : %,.2f\n", temp.Contact.Salary());
+    System.out.printf("\tB'Day(YYYY-MM-DD) : %s\n", temp.Contact.Birthday());
+
+}
+
+
+
    public void DeleteContact(int index){
     if(index==0){
         front = front.next();
@@ -218,7 +260,7 @@ class Contact {
     public void setName(String Name){
         this.Name=Name;
     }
-    public void SetPhoneNumber(String PhoneNumber){
+    public void setPhoneNumber(String PhoneNumber){
         this.PhoneNumber=PhoneNumber;
     }
     public void setCompanyName(String CompanyName){
@@ -381,36 +423,7 @@ public class IFriendContactOrganizer {
 
     // ==================================================== Display Member
     // ====================================================
-    public static void DisplayMember(int index, ContactList cList) {
-
-        // System.out.printf("\n\tContactid\t : %s\n", MemberIdArray[i]);
-        // System.out.printf("\tName\t : %s\n", NameArray[i]);
-        // System.out.printf("\tPhone Number\t : %s\n", PhoneNumberArray[i]);
-        // System.out.printf("\tCompany Name\t : %s\n", CompanyNameArray[i]);
-        // System.out.printf("\tSalary\t : %,.2f\n", SalaryArray[i]);
-        // System.out.printf("\tB'Day(YYYY-MM-DD) : %s\n", BirthDayArray[i]);
-        // System.out.printf("\n\tContactid\t : %s\n", ContactArray[i].GetMemberId());
-        // System.out.printf("\tName\t : %s\n", ContactArray[i].GetName());
-        // System.out.printf("\tPhone Number\t : %s\n",
-        // ContactArray[i].GetPhoneNumber());
-        // System.out.printf("\tCompany Name\t : %s\n",
-        // ContactArray[i].GetComanyName());
-        // System.out.printf("\tSalary\t : %,.2f\n", ContactArray[i].GetSalary());
-        // System.out.printf("\tB'Day(YYYY-MM-DD) : %s\n",
-        // ContactArray[i].GetBirthday());
-        Contact temp = cList.front();
-        for(int i=0;i<index;i++){
-            temp=temp.next();
-        }
-
-        System.out.printf("\n\tContactid\t  : %s\n", temp.id());
-        System.out.printf("\tName\t          : %s\n", temp.Name());
-        System.out.printf("\tPhone Number\t  : %s\n", temp.PhoneNumber());
-        System.out.printf("\tCompany Name\t  : %s\n", temp.CompanyName());
-        System.out.printf("\tSalary\t          : %,.2f\n", temp.Salary());
-        System.out.printf("\tB'Day(YYYY-MM-DD) : %s\n", temp.Birthday());
-
-    }
+    
 
     // =================================================== Search Member
     // ====================================================
@@ -1285,7 +1298,7 @@ public class IFriendContactOrganizer {
             System.out.println("|                           UPDATE Contact                        |");
             System.out.println("+-----------------------------------------------------------------+");
             System.out.println("");
-            if (cList.front() == null) {
+            if (cList.isNull()) {
                 System.out.println("\tThere are no any Contacts to Update...");
                 System.out.print("\nDo you want add contact (Y/N) : ");
                 char ch = input.next().charAt(0);
@@ -1304,7 +1317,7 @@ public class IFriendContactOrganizer {
             System.out.print("Search Contact by Name or Phone Number - ");
             String contact = input.next();
 
-            int FindMember = FindMember(contact,cList);
+            int FindMember = cList.FindMember(contact);
 
             if (FindMember == -1) {
                 System.out.println("\tNo contact found for " + contact + "...");
@@ -1329,7 +1342,7 @@ public class IFriendContactOrganizer {
                 }
 
             } else {
-                DisplayMember(FindMember,cList);
+                cList.DisplayMember(FindMember);
             }
             
             System.out.println("\nWhat do you want to update....");
@@ -1386,7 +1399,7 @@ public class IFriendContactOrganizer {
                         PhoneNumber = input.next();
                         if ((PhoneNumber.charAt(0) == '0') & (PhoneNumber.length() == 10)) {
 
-                            if (DuplicatePhoneNumber(PhoneNumber,cList.front()) == true) {
+                            if (cList.DuplicatePhoneNumber(PhoneNumber) == true) {
                                 System.out.println("\tDuplicate Phone Number...");
                                 System.out.print("\nDo you want to input Phone Number again (Y/N) : ");
                                 char ch = input.next().charAt(0);
