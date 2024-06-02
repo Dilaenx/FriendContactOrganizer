@@ -159,16 +159,25 @@ class ContactList {
     //     leftIndex();
         
     // }
+    class Contact{
+        ContactDetails ContactDetails;
+        ContactDetails next;
+
+        contact(ContactDetails ContactDetails){
+            this.Top=ContactDetails;
+        }
+
+    }
 }
 
-class Contact {
+class ContactDetails {
     private String MemberId;
     private String Name;
     private String PhoneNumber;
     private String CompanyName;
     private double Salary;
     private String Birthday;
-    private Contact next;
+   
 
     Contact(String MemberId, String Name, String PhoneNumber, String CompanyName, double Salary, String Birthday) {
         this.MemberId = MemberId;
