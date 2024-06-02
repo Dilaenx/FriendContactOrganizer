@@ -1741,7 +1741,7 @@ public class IFriendContactOrganizer {
             System.out.println("|                           SEARCH Contact                        |");
             System.out.println("+-----------------------------------------------------------------+");
             System.out.println("");
-            if (cList.front() == null) {
+            if (cList.isNull()) {
                 System.out.println("\tThere are no any Contacts to Update...");
                 System.out.print("\nDo you want add contact (Y/N) : ");
                 char ch = input.next().charAt(0);
@@ -1757,8 +1757,8 @@ public class IFriendContactOrganizer {
 
                 }
             }
-            if (cList.front().next() == null) {
-                DisplayMember(0,cList);
+            if (cList.nextIsNull()) {
+                cList.DisplayMember(0);
                 System.out.print("\nDo you want go homepage (Y/N) : ");
                 char ch = input.next().charAt(0);
                 input.nextLine();
@@ -1779,7 +1779,7 @@ public class IFriendContactOrganizer {
             System.out.print("Search Contact by Name or Phone Number - ");
             String contact = input.next();
 
-            int FindMember = FindMember(contact,cList);
+            int FindMember = cList.FindMember(contact);
             if (FindMember == -1) {
                 System.out.println("\tNo contact found for " + contact + "...");
                 System.out.print("\nDo you want to try a search contact (Y/N) : ");
@@ -1803,13 +1803,7 @@ public class IFriendContactOrganizer {
                 }
 
             } else {
-                Contact temp = cList.front();
-                for(int i=0;i<cList.Size();i++){
-                    if(temp.Name().equals(contact)||temp.PhoneNumber().equals(contact)){
-                        DisplayMember(i,cList);
-                    }
-                    temp=temp.next();
-                }
+                cList.DisplayMember(FindMember);
                 // String DuplicateNameArray[] = new String[ContactList.GetIndex()];
                 // String DuplicatePhoneNumber[] = new String[ContactList.GetIndex()];
                 // for (int i = 0; i < ContactList.GetIndex(); i++) {
