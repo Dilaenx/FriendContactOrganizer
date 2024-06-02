@@ -135,6 +135,86 @@ class ContactList {
         }temp.next=temp.next.next;
     }
    }
+
+   public void sortByName(){
+    Node temp = front;
+    Node temp2 = front;
+    while(temp!=null){
+        temp2 = temp.next;
+        while(temp2!=null){
+            if(temp.Contact.Name().compareTo(temp2.Contact.Name())>0){
+                Contact temp3 = temp.Contact;
+                temp.Contact = temp2.Contact;
+                temp2.Contact = temp3;
+            }
+            temp2 = temp2.next;
+        }
+        temp = temp.next;
+    }
+   }
+   public void sortBySalary(){
+    Node temp = front;
+    Node temp2 = front;
+    while(temp!=null){
+        temp2 = temp.next;
+        while(temp2!=null){
+            if(temp.Contact.Salary()>temp2.Contact.Salary()){
+                Contact temp3 = temp.Contact;
+                temp.Contact = temp2.Contact;
+                temp2.Contact = temp3;
+            }
+            temp2 = temp2.next;
+        }
+        temp = temp.next;
+    }
+   }
+   public void sortByBirthday(){
+    Node temp = front;
+    Node temp2 = front;
+    while(temp!=null){
+        temp2 = temp.next;
+        while(temp2!=null){
+            if(temp.Contact.Birthday().compareTo(temp2.Contact.Birthday())>0){
+                Contact temp3 = temp.Contact;
+                temp.Contact = temp2.Contact;
+                temp2.Contact = temp3;
+            }
+            temp2 = temp2.next;
+        }
+        temp = temp.next;
+    }
+
+    
+   }
+   public void printSort(){
+    Node temp = front;
+    System.out.println(
+                    "+--------------------------------------------------------------------------------------------------------------------+");
+            System.out.printf("|  %-14s|      %-10s|    %-15s|      %-14s|       %-13s|        %-12s|\n",
+                    "Contact Id",
+                    "Name", "Phone Number", "Company", "Salary", "Birthday");
+            System.out.println(
+                    "+--------------------------------------------------------------------------------------------------------------------+");
+
+               while(temp!=null){
+                System.out.printf("|  %-14s|      %-10s|    %-15s|      %-14s|       %,-13.2f|        %-12s|\n",
+                        
+                temp.Contact.id(),
+                temp.Contact.Name(),
+                temp.Contact.PhoneNumber(),
+                temp.Contact.CompanyName(),
+                temp.Contact.Salary(),
+                temp.Contact.Birthday());
+
+        temp=temp.next;
+               }
+            
+        
+            System.out.println(
+                    "+--------------------------------------------------------------------------------------------------------------------+");
+
+
+}
    public int Size(){
     Contact temp = front;
     int count = 0;
@@ -519,7 +599,7 @@ public class IFriendContactOrganizer {
     // ====================================================
     public static void SortContact(char Option) {
         Scanner input = new Scanner(System.in);
-        if (cList.front() == null) {
+        if (cList.isNull()) {
 
             System.out.println(
                     "\n\tThere are no any data......");
@@ -541,20 +621,14 @@ public class IFriendContactOrganizer {
         }
         switch (Option) {
             case '1': {
+                cList.sortByName();
                 System.out.println("\t\t\t+-----------------------------------------------------------------+");
                 System.out.println("\t\t\t|                      List contact by Name                       |");
                 System.out.println("\t\t\t+-----------------------------------------------------------------+");
                 // String[] AssendingMemeberArray = new String[MemberIdArray.length];
                 // String[] AssendingContactArray = new String[ContactList.GetIndex()];
                 // String[] DuplicateContactArray = new String[ContactList.GetIndex()];
-                System.out.println(
-                        "+--------------------------------------------------------------------------------------------------------------------+");
-                System.out.printf("|  %-14s|      %-10s|    %-15s|      %-14s|       %-13s|        %-12s|\n",
-                        "Contact Id",
-                        "Name", "Phone Number", "Company", "Salary", "Birthday");
-                System.out.println(
-                        "+--------------------------------------------------------------------------------------------------------------------+");
-
+                cList.printSort();
                 // for (int i = 0; i < ContactList.GetIndex(); i++) {
                 //     // Contact originalContact = ContactArray[i];
                 //     // Contact duplicateContact = new Contact(originalContact.GetMemberId(),
@@ -566,76 +640,76 @@ public class IFriendContactOrganizer {
                 //     AssendingContactArray[i] = ContactList.GetName(i);
                 //     DuplicateContactArray[i] = ContactList.GetName(i);
                 // }
-                    int size =cList.Size();
+                //     int size =cList.Size();
                    
-                for (int j = 0; j < size ; j++) {
-                    Contact temp = cList.front();
-                    Contact top = cList.front();
-                    System.out.println("for ");
-                    while (temp.next()!=null){
+                // for (int j = 0; j < size ; j++) {
+                //     Contact temp = cList.front();
+                //     Contact top = cList.front();
+                //     System.out.println("for ");
+                //     while (temp.next()!=null){
 
-                        // if ((AssendingContactArray[i]).compareTo(AssendingContactArray[i + 1]) > 0) {
-                        //     String temp = AssendingContactArray[i];
-                        //     AssendingContactArray[i] = AssendingContactArray[i + 1];
-                        //     AssendingContactArray[1 + i] = temp;
-                            String name1 =temp.Name();
-                            String name2 =temp.next().Name();
-                        if(name1.compareTo(name2) > 0){
-                            // Contact top =temp.next();
-                            // temp.setnext(temp.next().next()); 
-                            // top.setnext(temp);                                         
-                            // temp=top;
+                //         // if ((AssendingContactArray[i]).compareTo(AssendingContactArray[i + 1]) > 0) {
+                //         //     String temp = AssendingContactArray[i];
+                //         //     AssendingContactArray[i] = AssendingContactArray[i + 1];
+                //         //     AssendingContactArray[1 + i] = temp;
+                //             String name1 =temp.Name();
+                //             String name2 =temp.next().Name();
+                //         if(name1.compareTo(name2) > 0){
+                //             // Contact top =temp.next();
+                //             // temp.setnext(temp.next().next()); 
+                //             // top.setnext(temp);                                         
+                //             // temp=top;
                             
-                            // Contact front =temp.next();
-                            // temp.setnext(temp.next().next());
-                            // front.setnext(temp);
-                            // temp=front;
+                //             // Contact front =temp.next();
+                //             // temp.setnext(temp.next().next());
+                //             // front.setnext(temp);
+                //             // temp=front;
 
-                            top =temp.next();
-                            temp.setnext(top.next());
-                            top.setnext(temp);
-                            temp=top;
+                //             top =temp.next();
+                //             temp.setnext(top.next());
+                //             top.setnext(temp);
+                //             temp=top;
                             
-                            System.out.println(temp.Name());
+                //             System.out.println(temp.Name());
 
-                            System.out.println("whul");
+                //             System.out.println("whul");
 
 
-                        }
-                        System.out.println(temp.Name());
-                        temp=temp.next();
-                        System.out.println(temp.Name());
-                        }
+                //         }
+                //         System.out.println(temp.Name());
+                //         temp=temp.next();
+                //         System.out.println(temp.Name());
+                //         }
 
-                    }
+                //     }
 
                 
-                    Contact temp2 = cList.front();
-                while(temp2!=null) {
+                //     Contact temp2 = cList.front();
+                // while(temp2!=null) {
                     
 
-                    System.out.printf("|  %-14s|      %-10s|    %-15s|      %-14s|       %,-13.2f|        %-12s|\n",
-                            // ContactArray[newindex].GetMemberId(),
-                            // ContactArray[newindex].GetName(),
-                            // ContactArray[newindex].GetPhoneNumber(),
-                            // ContactArray[newindex].GetComanyName(),
-                            // ContactArray[newindex].GetSalary(),
-                            // ContactArray[newindex].GetBirthday());
-                            temp2.id(),
-                            temp2.Name(),
-                            temp2.PhoneNumber(),
-                            temp2.CompanyName(),
-                            temp2.Salary(),
-                            temp2.Birthday());
+                //     System.out.printf("|  %-14s|      %-10s|    %-15s|      %-14s|       %,-13.2f|        %-12s|\n",
+                //             // ContactArray[newindex].GetMemberId(),
+                //             // ContactArray[newindex].GetName(),
+                //             // ContactArray[newindex].GetPhoneNumber(),
+                //             // ContactArray[newindex].GetComanyName(),
+                //             // ContactArray[newindex].GetSalary(),
+                //             // ContactArray[newindex].GetBirthday());
+                //             temp2.id(),
+                //             temp2.Name(),
+                //             temp2.PhoneNumber(),
+                //             temp2.CompanyName(),
+                //             temp2.Salary(),
+                //             temp2.Birthday());
 
-                    temp2=temp2.next();
-                }
-                // for (int i = 0; i < ContactList.GetIndex(); i++) {
-                //     ContactList.SetName(i, AssendingContactArray[i]);
+                //     temp2=temp2.next();
                 // }
+                // // for (int i = 0; i < ContactList.GetIndex(); i++) {
+                // //     ContactList.SetName(i, AssendingContactArray[i]);
+                // // }
 
-                System.out.println(
-                        "+--------------------------------------------------------------------------------------------------------------------+");
+                // System.out.println(
+                //         "+--------------------------------------------------------------------------------------------------------------------+");
 
                 System.out.print("\nDo you want to go home (Y/N) : ");
                 char ch = input.next().charAt(0);
@@ -658,11 +732,13 @@ public class IFriendContactOrganizer {
                     break;
                 }
             }
-            //break;
-            // case '2': {
-            //     System.out.println("\t\t\t+-----------------------------------------------------------------+");
-            //     System.out.println("\t\t\t|                     List contact by Salary                      |");
-            //     System.out.println("\t\t\t+-----------------------------------------------------------------+");
+            
+            case '2': {
+                System.out.println("\t\t\t+-----------------------------------------------------------------+");
+                System.out.println("\t\t\t|                     List contact by Salary                      |");
+                System.out.println("\t\t\t+-----------------------------------------------------------------+");
+                cList.sortBySalary();
+                cList.printSort();
             //     // double[] AssendingMemeberSalaryArray = new double[MemberIdArray.length];
             //     double[] AssendingContactArray = new double[ContactList.GetIndex()];
             //     double[] DuplicateContactArray = new double[ContactList.GetIndex()];
@@ -724,33 +800,35 @@ public class IFriendContactOrganizer {
             //     System.out.println(
             //             "+--------------------------------------------------------------------------------------------------------------------+");
 
-            //     System.out.print("\nDo you want to go home (Y/N) : ");
-            //     char ch = input.next().charAt(0);
-            //     input.nextLine();
-            //     if (ch == 'Y' || ch == 'y') {
-            //         // Move the cursor up five lines
-            //         System.out.print("\033[4A");
-            //         // Clear the lines
-            //         System.out.print("\033[0J");
-            //         home();
-            //         break;
-            //     } else if (ch == 'N' || ch == 'n') {
-            //         Exit();
-            //         return;
+                System.out.print("\nDo you want to go home (Y/N) : ");
+                char ch = input.next().charAt(0);
+                input.nextLine();
+                if (ch == 'Y' || ch == 'y') {
+                    // Move the cursor up five lines
+                    System.out.print("\033[4A");
+                    // Clear the lines
+                    System.out.print("\033[0J");
+                    home();
+                    break;
+                } else if (ch == 'N' || ch == 'n') {
+                    Exit();
+                    return;
 
-            //     } else {
-            //         System.out.println("Invalid Input......");
-            //         System.out.println("----------------------------------------------------------------------\n\n\n");
-            //         home();
-            //         break;
-            //     }
+                } else {
+                    System.out.println("Invalid Input......");
+                    System.out.println("----------------------------------------------------------------------\n\n\n");
+                    home();
+                    break;
+                }
 
-            // }
+            }
 
-            // case '3': {
-            //     System.out.println("\t\t\t+-----------------------------------------------------------------+");
-            //     System.out.println("\t\t\t|                    List contact by Birthday                     |");
-            //     System.out.println("\t\t\t+-----------------------------------------------------------------+");
+            case '3': {
+                System.out.println("\t\t\t+-----------------------------------------------------------------+");
+                System.out.println("\t\t\t|                    List contact by Birthday                     |");
+                System.out.println("\t\t\t+-----------------------------------------------------------------+");
+                cList.sortByBirthday();
+                cList.printSort();
             //     // String[] AssendingBirthDayArray = new String[MemberIdArray.length];
             //     // Contact [] AssendingContactArray = new Contact [ContactArray.length];
             //     System.out.println(
@@ -818,27 +896,27 @@ public class IFriendContactOrganizer {
             //     System.out.println(
             //             "+--------------------------------------------------------------------------------------------------------------------+");
 
-            //     System.out.print("\nDo you want to go home (Y/N) : ");
-            //     char ch = input.next().charAt(0);
-            //     input.nextLine();
-            //     if (ch == 'Y' || ch == 'y') {
-            //         // Move the cursor up five lines
-            //         System.out.print("\033[4A");
-            //         // Clear the lines
-            //         System.out.print("\033[0J");
-            //         home();
-            //         break;
-            //     } else if (ch == 'N' || ch == 'n') {
-            //         Exit();
-            //         return;
+                System.out.print("\nDo you want to go home (Y/N) : ");
+                char ch = input.next().charAt(0);
+                input.nextLine();
+                if (ch == 'Y' || ch == 'y') {
+                    // Move the cursor up five lines
+                    System.out.print("\033[4A");
+                    // Clear the lines
+                    System.out.print("\033[0J");
+                    home();
+                    break;
+                } else if (ch == 'N' || ch == 'n') {
+                    Exit();
+                    return;
 
-            //     } else {
-            //         System.out.println("Invalid Input......");
-            //         System.out.println("----------------------------------------------------------------------\n\n\n");
-            //         home();
-            //         break;
-            //     }
-            // }
+                } else {
+                    System.out.println("Invalid Input......");
+                    System.out.println("----------------------------------------------------------------------\n\n\n");
+                    home();
+                    break;
+                }
+            }
             default:
                 System.out.print("\n\tInvalid input.....\n\nDo you want to sort contact (Y/N) : ");
                 char ch = input.next().charAt(0);
