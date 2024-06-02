@@ -3,12 +3,7 @@ import java.time.LocalTime;
 import java.util.*;
 
 class ContactList {
-    //private Contact[] ContactListArray;
-    // private int Length;
-    // private int LoadFactor;
-    // private int Index;
     private Node front;
-
     public boolean isNull(){
         if(front==null){
             return true;
@@ -25,10 +20,7 @@ class ContactList {
     }
 
     public void AddContact(Contact Contact) {
-        // ContactListArray = new Contact[Length];
-        // this.Length = Length;
-        // this.LoadFactor = LoadFactor;
-        // Index = 0;
+       
         Node n1 = new Node(Contact);
         Node lNode = front;
         if(isNull()){
@@ -215,87 +207,7 @@ class ContactList {
 
 
 }
-   public int Size(){
-    Contact temp = front;
-    int count = 0;
-    while(temp!=null){
-        count++;
-        temp = temp.next();
-    }
-    return count;
-   }
-
-
-
-    // public void AddContact(Contact Contact) {
-    //     if (Index == ContactListArray.length) {
-    //         Contact[] temp = new Contact[Index + LoadFactor];
-    //     }
-    //     ContactListArray[Index++] = Contact;
-    // }
-
-    // public int GetIndex() {
-    //     return Index;
-    // }
-
-    // public String GetMemberId(int index) {
-    //     return ContactListArray[index].GetMemberId();
-    // }
-
-    // public String GetName(int index) {
-    //     return ContactListArray[index].GetName();
-    // }
-
-    // public String GetPhoneNumber(int index) {
-    //     return ContactListArray[index].GetPhoneNumber();
-    // }
-
-    // public String GetCompanyName(int index) {
-    //     return ContactListArray[index].GetComanyName();
-    // }
-
-    // public Double GetSalary(int index) {
-    //     return ContactListArray[index].GetSalary();
-    // }
-
-    // public String GetBirthday(int index) {
-    //     return ContactListArray[index].GetBirthday();
-    // }
-
-
-    // public void SetContactId(int FindMember, String ContactId) {
-    //     ContactListArray[FindMember].SetMemberId(ContactId);
-    // }
-
-    // public void SetName(int FindMember, String newName) {
-    //     ContactListArray[FindMember].SetName(newName);
-    // }
-
-    // public void SetPhoneNumber(int FindMember, String PhoneNumber) {
-    //     ContactListArray[FindMember].SetPhoneNumber(PhoneNumber);
-    // }
-
-    // public void SetCompanyName(int FindMember, String newCompanyName) {
-    //     ContactListArray[FindMember].SetCompanyName(newCompanyName);
-    // }
-
-    // public void SetSalary(int FindMember, double Salary) {
-    //     ContactListArray[FindMember].SetSalary(Salary);
-    // }
-
-    // public void leftIndex() {
-    //     Index--;
-    // }
-
-    // public void DeleteContact(int Delete) {
-    //     for (int i = Delete; i < Index; i++) {
-    //         if(i+1<Index)SetContactId(i+1, GetMemberId(i));
-    //         ContactListArray[i] = ContactListArray[i + 1];
-
-    //     }
-    //     leftIndex();
-        
-    // }
+  
     class Node{
         Contact Contact;
         Node next;
@@ -357,200 +269,11 @@ class Contact {
         this.Salary=Salary;
     }
     
-    // public void SetMemberId(String MemberId) {
-    //     this.MemberId = MemberId;
-    // }
 
-    // public void SetName(String Name) {
-    //     this.Name = Name;
-    // }
-
-    // public void SetPhoneNumber(String PhoneNumber) {
-    //     this.PhoneNumber = PhoneNumber;
-    // }
-
-    // public void SetCompanyName(String CompanyName) {
-    //     this.CompanyName = CompanyName;
-    // }
-
-    // public void SetSalary(double Salary) {
-    //     this.Salary = Salary;
-    // }
-
-    // public void SetBirthday(String Birthday) {
-    //     this.Birthday = Birthday;
-    // }
-
-    // public String GetMemberId() {
-    //     return MemberId;
-    // }
-
-    // public String GetName() {
-    //     return Name;
-    // }
-
-    // public String GetPhoneNumber() {
-    //     return PhoneNumber;
-    // }
-
-    // public String GetComanyName() {
-    //     return CompanyName;
-    // }
-
-    // public double GetSalary() {
-    //     return Salary;
-    // }
-
-    // public String GetBirthday() {
-    //     return Birthday;
-    // }
 }
 
 public class IFriendContactOrganizer {
-    // ==================================================== Create Arrays
-    // ====================================================
-    // public static Contact [] ContactArray = new Contact [0];
-    // public static string[] memberidarray = new string[0];
-    // public static string[] namearray = new string[0];
-    // public static string[] phonenumberarray = new string[0];
-    // public static string[] companynamearray = new string[0];
-    // public static double[] salaryarray = new double[0];
-    // public static string[] birthdayarray = new string[0];
-    //public static ContactList ContactList = new ContactList(5, 2);
-
-    // ==================================================== MemberIdGenarate2
-    // ====================================================
-    // public static String MemberIdGenarate2() {
-    //     String nextId = String.format("C%03d", ContactList.GetIndex() + 1);
-
-    //     return nextId;
-
-    // }
-
-    // ==================================================== MemberIdGenarate1
-    // ====================================================
-
-    // ==================================================== Extend Arrays
-    // ====================================================
-    public static void ExtendArrays() {
-        // String[] extendMemberIdArray = new String[MemberIdArray.length + 1];
-        // String[] extendNameArray = new String[MemberIdArray.length + 1];
-        // String[] extendPhoneNumberArray = new String[MemberIdArray.length + 1];
-        // String[] extendCompanyNameArray = new String[MemberIdArray.length + 1];
-        // double[] extendSalaryArray = new double[MemberIdArray.length + 1];
-        // String[] extendBirthDayArray = new String[MemberIdArray.length + 1];
-
-        // for (int i = 0; i < MemberIdArray.length; i++) {
-        // extendMemberIdArray[i] = MemberIdArray[i];
-        // extendNameArray[i] = NameArray[i];
-        // extendPhoneNumberArray[i] = PhoneNumberArray[i];
-        // extendCompanyNameArray[i] = CompanyNameArray[i];
-        // extendSalaryArray[i] = SalaryArray[i];
-        // extendBirthDayArray[i] = BirthDayArray[i];
-        // }
-        // MemberIdArray = extendMemberIdArray;
-        // NameArray = extendNameArray;
-        // PhoneNumberArray = extendPhoneNumberArray;
-        // CompanyNameArray = extendCompanyNameArray;
-        // SalaryArray = extendSalaryArray;
-        // BirthDayArray = extendBirthDayArray;
-
-        // Contact [] ExtendContactArray = new Contact[ContactArray.length+1];
-        // for (int i = 0; i < ContactArray.length; i++) {
-        // ExtendContactArray[i]=ContactArray[i];
-        // }
-        // ContactArray=ExtendContactArray;
-
-    }
-
-    // ==================================================== NewDeleteArrays
-    // ====================================================
-    public static void NewDeleteArrays(int delete) {
-        // String[] extendMemberIdArray = new String[MemberIdArray.length - 1];
-        // String[] extendNameArray = new String[MemberIdArray.length - 1];
-        // String[] extendPhoneNumberArray = new String[MemberIdArray.length - 1];
-        // String[] extendCompanyNameArray = new String[MemberIdArray.length - 1];
-        // double[] extendSalaryArray = new double[MemberIdArray.length - 1];
-        // String[] extendBirthDayArray = new String[MemberIdArray.length - 1];
-
-        // Contact [] DeleteContactArray = new Contact[ContactArray.length-1];
-
-        // for (int i = 0; i < delete; i++) {
-        // // extendMemberIdArray[i] = MemberIdArray[i];
-        // // extendNameArray[i] = NameArray[i];
-        // // extendPhoneNumberArray[i] = PhoneNumberArray[i];
-        // // extendCompanyNameArray[i] = CompanyNameArray[i];
-        // // extendSalaryArray[i] = SalaryArray[i];
-        // // extendBirthDayArray[i] = BirthDayArray[i];
-        // DeleteContactArray[i] = ContactArray[i];
-        // }
-        // // int j = delete;
-        // for (int i = delete + 1; i < ContactArray.length; i++) {
-        // // extendMemberIdArray[j] = MemberIdArray[i];
-        // // extendNameArray[j] = NameArray[i];
-        // // extendPhoneNumberArray[j] = PhoneNumberArray[i];
-        // // extendCompanyNameArray[j] = CompanyNameArray[i];
-        // // extendSalaryArray[j] = SalaryArray[i];
-        // // extendBirthDayArray[j] = BirthDayArray[i];
-        // // j++;
-        // DeleteContactArray[delete] = ContactArray[i];
-        // }
-        // // // for (int i = 0; i < extendMemberIdArray.length; i++) {
-        // // // extendMemberIdArray[i] = MemberIdArray[i];
-
-        // // // }
-        // // MemberIdArray = extendMemberIdArray;
-        // // NameArray = extendNameArray;
-        // // PhoneNumberArray = extendPhoneNumberArray;
-        // // CompanyNameArray = extendCompanyNameArray;
-        // // SalaryArray = extendSalaryArray;
-        // // BirthDayArray = extendBirthDayArray;
-        // ContactArray = DeleteContactArray;
-    }
-
-    // ==================================================== Display Member
-    // ====================================================
-    
-
-    // =================================================== Search Member
-    // ====================================================
-    public static int FindMember(String contact,ContactList cList) {
-        // int i = 0;
-        // do {
-
-        //     // Scanner input = new Scanner(System.in);
-
-        //     if ((contact.charAt(0) == '0') & (contact.length() == 10)) {
-        //         for (i = 0; i < ContactList.GetIndex(); i++) {
-        //             if (contact.equals(ContactList.GetPhoneNumber(i))) {
-        //                 return i;
-
-        //             }
-        //         }
-
-        //     } // check phone number
-
-        //     else {
-        //         for (i = 0; i < ContactList.GetIndex(); i++) {
-        //             if (contact.equals(ContactList.GetName(i))) {
-        //                 return i;
-        //             }
-        //         }
-        //     }
-        //     return -1;
-        // } while (true);
-        Contact temp = cList.front();
-        int index =0;
-            while(temp != null) {
-                if(contact.equals(temp.PhoneNumber()) || contact.equals(temp.Name())) {
-                    return index;
-                }
-                index++;
-                temp=temp.next();
-            }
-        return -1;
-
-    }
+   
 
     // ==================================================== Clear Console
     // ====================================================
@@ -569,34 +292,7 @@ public class IFriendContactOrganizer {
         }
     }
 
-    // ==================================================== DuplicatePhoneNumber
-    // ====================================================
-//     public static boolean DuplicatePhoneNumber(String phoneNumber) {
-
-//         // for (int i = 0; i < ContactList.GetIndex(); i++) {
-//         //     if (phoneNumber.equals(ContactList.GetPhoneNumber(i))) {
-//         //         return true;
-//         //     }
-//         // }
-//         // return false;
-        
-//         if(cList.front()==null){
-//             return false;
-//         }else{
-//         Contact temp = front;
-//         while(temp!=null){
-//             if(phoneNumber.equals(temp.PhoneNumber())){
-//         return true;
-        
-//         }
-//         temp=temp.next();
-//         }
-//     }
-//     return false;
-// }
-
-    // ==================================================== Short methode
-    // ====================================================
+    
     public static void SortContact(char Option) {
         Scanner input = new Scanner(System.in);
         if (cList.isNull()) {
@@ -621,96 +317,15 @@ public class IFriendContactOrganizer {
         }
         switch (Option) {
             case '1': {
-                cList.sortByName();
+                
                 System.out.println("\t\t\t+-----------------------------------------------------------------+");
                 System.out.println("\t\t\t|                      List contact by Name                       |");
                 System.out.println("\t\t\t+-----------------------------------------------------------------+");
-                // String[] AssendingMemeberArray = new String[MemberIdArray.length];
+                cList.sortByName();
                 // String[] AssendingContactArray = new String[ContactList.GetIndex()];
                 // String[] DuplicateContactArray = new String[ContactList.GetIndex()];
                 cList.printSort();
-                // for (int i = 0; i < ContactList.GetIndex(); i++) {
-                //     // Contact originalContact = ContactArray[i];
-                //     // Contact duplicateContact = new Contact(originalContact.GetMemberId(),
-                //     // originalContact.GetName(),
-                //     // originalContact.GetPhoneNumber(), originalContact.GetComanyName(),
-                //     // originalContact.GetSalary(), originalContact.GetBirthday());
-                //     // AssendingContactArray[i] = originalContact;
-                //     // DuplicateContactArray[i] = duplicateContact;
-                //     AssendingContactArray[i] = ContactList.GetName(i);
-                //     DuplicateContactArray[i] = ContactList.GetName(i);
-                // }
-                //     int size =cList.Size();
-                   
-                // for (int j = 0; j < size ; j++) {
-                //     Contact temp = cList.front();
-                //     Contact top = cList.front();
-                //     System.out.println("for ");
-                //     while (temp.next()!=null){
-
-                //         // if ((AssendingContactArray[i]).compareTo(AssendingContactArray[i + 1]) > 0) {
-                //         //     String temp = AssendingContactArray[i];
-                //         //     AssendingContactArray[i] = AssendingContactArray[i + 1];
-                //         //     AssendingContactArray[1 + i] = temp;
-                //             String name1 =temp.Name();
-                //             String name2 =temp.next().Name();
-                //         if(name1.compareTo(name2) > 0){
-                //             // Contact top =temp.next();
-                //             // temp.setnext(temp.next().next()); 
-                //             // top.setnext(temp);                                         
-                //             // temp=top;
-                            
-                //             // Contact front =temp.next();
-                //             // temp.setnext(temp.next().next());
-                //             // front.setnext(temp);
-                //             // temp=front;
-
-                //             top =temp.next();
-                //             temp.setnext(top.next());
-                //             top.setnext(temp);
-                //             temp=top;
-                            
-                //             System.out.println(temp.Name());
-
-                //             System.out.println("whul");
-
-
-                //         }
-                //         System.out.println(temp.Name());
-                //         temp=temp.next();
-                //         System.out.println(temp.Name());
-                //         }
-
-                //     }
-
                 
-                //     Contact temp2 = cList.front();
-                // while(temp2!=null) {
-                    
-
-                //     System.out.printf("|  %-14s|      %-10s|    %-15s|      %-14s|       %,-13.2f|        %-12s|\n",
-                //             // ContactArray[newindex].GetMemberId(),
-                //             // ContactArray[newindex].GetName(),
-                //             // ContactArray[newindex].GetPhoneNumber(),
-                //             // ContactArray[newindex].GetComanyName(),
-                //             // ContactArray[newindex].GetSalary(),
-                //             // ContactArray[newindex].GetBirthday());
-                //             temp2.id(),
-                //             temp2.Name(),
-                //             temp2.PhoneNumber(),
-                //             temp2.CompanyName(),
-                //             temp2.Salary(),
-                //             temp2.Birthday());
-
-                //     temp2=temp2.next();
-                // }
-                // // for (int i = 0; i < ContactList.GetIndex(); i++) {
-                // //     ContactList.SetName(i, AssendingContactArray[i]);
-                // // }
-
-                // System.out.println(
-                //         "+--------------------------------------------------------------------------------------------------------------------+");
-
                 System.out.print("\nDo you want to go home (Y/N) : ");
                 char ch = input.next().charAt(0);
                 input.nextLine();
@@ -739,67 +354,6 @@ public class IFriendContactOrganizer {
                 System.out.println("\t\t\t+-----------------------------------------------------------------+");
                 cList.sortBySalary();
                 cList.printSort();
-            //     // double[] AssendingMemeberSalaryArray = new double[MemberIdArray.length];
-            //     double[] AssendingContactArray = new double[ContactList.GetIndex()];
-            //     double[] DuplicateContactArray = new double[ContactList.GetIndex()];
-            //     System.out.println(
-            //             "+--------------------------------------------------------------------------------------------------------------------+");
-            //     System.out.printf("|  %-14s|      %-10s|    %-15s|      %-14s|       %-13s|        %-12s|\n",
-            //             "Contact Id",
-            //             "Name", "Phone Number", "Company", "Salary", "Birthday");
-            //     System.out.println(
-            //             "+--------------------------------------------------------------------------------------------------------------------+");
-            //     for (int i = 0; i < ContactList.GetIndex(); i++) {
-            //         // Contact originalContact = ContactArray[i];
-            //         // Contact duplicateContact = new Contact(originalContact.GetMemberId(),
-            //         // originalContact.GetName(),
-            //         // originalContact.GetPhoneNumber(), originalContact.GetComanyName(),
-            //         // originalContact.GetSalary(), originalContact.GetBirthday());
-            //         // AssendingContactArray[i] = originalContact;
-            //         // DuplicateContactArray[i] = duplicateContact;
-            //         AssendingContactArray[i] = ContactList.GetSalary(i);
-            //         DuplicateContactArray[i] = AssendingContactArray[i];
-            //     }
-
-            //     for (int j = 0; j < ContactList.GetIndex() - j; j++) {
-            //         for (int i = 0; i < ContactList.GetIndex() - 1; i++) {
-            //             if ((AssendingContactArray[i]) > (AssendingContactArray[i + 1])) {
-            //                 double temp = AssendingContactArray[i];
-            //                 AssendingContactArray[i] = AssendingContactArray[i + 1];
-            //                 AssendingContactArray[1 + i] = temp;
-            //             }
-
-            //         }
-
-            //     }
-
-            //     for (int i = 0; i < ContactList.GetIndex(); i++) {
-            //         int newindex = SortSearch2(AssendingContactArray[i]);
-            //         System.out.printf("|  %-14s|      %-10s|    %-15s|      %-14s|       %,-13.2f|        %-12s|\n",
-            //                 // ContactArray[newindex].GetMemberId(),
-            //                 // ContactArray[newindex].GetName(),
-            //                 // ContactArray[newindex].GetPhoneNumber(),
-            //                 // ContactArray[newindex].GetComanyName(),
-            //                 // ContactArray[newindex].GetSalary(),
-            //                 // ContactArray[newindex].GetBirthday());
-
-            //                 // ContactArray[newindex].SetSalary(0);
-
-            //                 ContactList.GetMemberId(newindex),
-            //                 ContactList.GetName(newindex),
-            //                 ContactList.GetPhoneNumber(newindex),
-            //                 ContactList.GetCompanyName(newindex),
-            //                 ContactList.GetSalary(newindex),
-            //                 ContactList.GetBirthday(newindex));
-
-            //         ContactList.SetSalary(i, 0);
-            //     }
-            //     for (int i = 0; i < ContactList.GetIndex(); i++) {
-            //         ContactList.SetSalary(i, DuplicateContactArray[i]);
-            //     }
-            //     System.out.println(
-            //             "+--------------------------------------------------------------------------------------------------------------------+");
-
                 System.out.print("\nDo you want to go home (Y/N) : ");
                 char ch = input.next().charAt(0);
                 input.nextLine();
@@ -829,73 +383,6 @@ public class IFriendContactOrganizer {
                 System.out.println("\t\t\t+-----------------------------------------------------------------+");
                 cList.sortByBirthday();
                 cList.printSort();
-            //     // String[] AssendingBirthDayArray = new String[MemberIdArray.length];
-            //     // Contact [] AssendingContactArray = new Contact [ContactArray.length];
-            //     System.out.println(
-            //             "+--------------------------------------------------------------------------------------------------------------------+");
-            //     System.out.printf("|  %-14s|      %-10s|    %-15s|      %-14s|       %-13s|        %-12s|\n",
-            //             "Contact Id",
-            //             "Name", "Phone Number", "Company", "Salary", "Birthday");
-            //     System.out.println(
-            //             "+--------------------------------------------------------------------------------------------------------------------+");
-            //     // for (int i = 0; i < ContactArray.length; i++) {
-            //     // AssendingContactArray[i] = ContactArray[i];
-            //     // }
-            //     int IntAssendingBirthDayArray[] = new int[ContactList.GetIndex()];
-            //     int IntBirthDayArray[] = new int[ContactList.GetIndex()];
-            //     /////////////////////////////////////////////////////////////////////////////////////////////
-            //     for (int i = 0; i < ContactList.GetIndex(); i++) {
-            //         String BDay = ContactList.GetBirthday(i);
-            //         String Year = BDay.substring(0, 4);
-            //         String Month = BDay.substring(5, 7);
-            //         String day = BDay.substring(8);
-            //         // String Line1 = BDay.substring(4, 5);
-            //         // String Line2 = BDay.substring(7, 8);
-
-            //         int days = (Integer.parseInt(day));
-            //         int Months = (Integer.parseInt(Month));
-            //         int year = (Integer.parseInt(Year));
-
-            //         int values = year * 10000 + Months * 100 + days;
-            //         IntAssendingBirthDayArray[i] = values;
-
-            //     }
-            //     for (int i = 0; i < ContactList.GetIndex(); i++) {
-            //         IntBirthDayArray[i] = IntAssendingBirthDayArray[i];
-            //     }
-            //     ////////////////////////////////////////////////////////////////////////////////////////////
-            //     for (int j = 0; j < ContactList.GetIndex() - j; j++) {
-            //         for (int i = 0; i < ContactList.GetIndex() - 1; i++) {
-            //             if (IntAssendingBirthDayArray[i] > IntAssendingBirthDayArray[i + 1]) {
-            //                 int temp = IntAssendingBirthDayArray[i];
-            //                 IntAssendingBirthDayArray[i] = IntAssendingBirthDayArray[i + 1];
-            //                 IntAssendingBirthDayArray[1 + i] = temp;
-            //             }
-
-            //         }
-
-            //     }
-
-            //     for (int i = 0; i < IntAssendingBirthDayArray.length; i++) {
-            //         int newindex = SortSearch3(IntAssendingBirthDayArray[i], IntBirthDayArray);
-            //         System.out.printf("|  %-14s|      %-10s|    %-15s|      %-14s|       %,-13.2f|        %-12s|\n",
-            //                 // ContactArray[newindex].GetMemberId(),
-            //                 // ContactArray[newindex].GetName(),
-            //                 // ContactArray[newindex].GetPhoneNumber(),
-            //                 // ContactArray[newindex].GetComanyName(),
-            //                 // ContactArray[newindex].GetSalary(),
-            //                 // ContactArray[newindex].GetBirthday());
-            //                 ContactList.GetMemberId(newindex),
-            //                 ContactList.GetName(newindex),
-            //                 ContactList.GetPhoneNumber(newindex),
-            //                 ContactList.GetCompanyName(newindex),
-            //                 ContactList.GetSalary(newindex),
-            //                 ContactList.GetBirthday(newindex));
-            //         IntBirthDayArray[newindex] = 0;
-            //     }
-            //     System.out.println(
-            //             "+--------------------------------------------------------------------------------------------------------------------+");
-
                 System.out.print("\nDo you want to go home (Y/N) : ");
                 char ch = input.next().charAt(0);
                 input.nextLine();
@@ -937,50 +424,7 @@ public class IFriendContactOrganizer {
 
     }
 
-    // ==================================================== Sort Search
-    // ====================================================
-    public static int SortSearch(String key) {
-        int index = 0;
-        for (int i = 0; i < ContactList.GetIndex(); i++) {
-            if (ContactList.GetName(i).equals(key)) {
-                index = i;
-                break;
-            }
-        }
-        return index;
-
-    }
-
-    public static int SortSearch2(Double key) {
-        int index = 0;
-        for (int i = 0; i < ContactList.GetIndex(); i++) {
-            if (key == ContactList.GetSalary(i)) {
-                index = i;
-                break;
-            }
-        }
-        return index;
-
-    }
-
-    public static int SortSearch3(int key, int kay[]) {
-        int index = 0;
-        for (int i = 0; i < ContactList.GetIndex(); i++) {
-            if (key == kay[i]) {
-                index = i;
-                break;
-
-            }
-        }
-        return index;
-    }
-
-    // ==================================================== printsort
-    // ====================================================
-    public static void PrintSort(int key) {
-
-    }
-
+   
     // ==================================================== Main methode
     // ====================================================
     public static void main(String[] args) {
@@ -1084,10 +528,9 @@ public class IFriendContactOrganizer {
             System.out.println("+-----------------------------------------------------------------+");
             System.out.println("");
 
-            // MemberIdArray[MemberIdArray.length - 1] = MemberIdGenarate2();
             String MemberId = cList.MemberIdGenarate2();
 
-            // System.out.println(MemberIdArray[MemberIdArray.length - 1]);
+        
             System.out.println(MemberId);
             System.out.println("=======\n\n");
 
@@ -1342,14 +785,6 @@ public class IFriendContactOrganizer {
 
             } while (true);
 
-            // NameArray[MemberIdArray.length - 1] = Name;
-            // PhoneNumberArray[MemberIdArray.length - 1] = PhoneNumber;
-            // CompanyNameArray[MemberIdArray.length - 1] = CompanyName;
-            // SalaryArray[MemberIdArray.length - 1] = Salary;
-            // BirthDayArray[MemberIdArray.length - 1] = BDay;
-            // ExtendArrays();
-            // ContactArray [ContactArray.length-1] = new
-            // Contact(MemberId,Name,PhoneNumber,CompanyName,Salary,BDay);
             Contact ContactDetails = new Contact(MemberId, Name, PhoneNumber, CompanyName, Salary, BDay);
             cList.AddContact(ContactDetails);
             System.out.println("\n\tMember added successfully...");
@@ -1694,7 +1129,7 @@ public class IFriendContactOrganizer {
     public static void DeleteContact() {
         clearConsole();
         Scanner input = new Scanner(System.in);
-        L2: do {
+         do {
             clearConsole();
 
             System.out.println("+-----------------------------------------------------------------+");
@@ -1882,32 +1317,6 @@ public class IFriendContactOrganizer {
 
             } else {
                 cList.DisplayMember(FindMember);
-                // String DuplicateNameArray[] = new String[ContactList.GetIndex()];
-                // String DuplicatePhoneNumber[] = new String[ContactList.GetIndex()];
-                // for (int i = 0; i < ContactList.GetIndex(); i++) {
-                //     DuplicateNameArray[i] = ContactList.GetName(i);
-                //     DuplicatePhoneNumber[i] = ContactList.GetPhoneNumber(i);
-                // }
-                // while (true) {
-                //     FindMember = FindMember(contact);
-                //     if (FindMember == -1)
-                //         break;
-                //     DisplayMember(FindMember);
-                //     ContactList.SetPhoneNumber(FindMember, "contact");
-                //     ContactList.SetName(FindMember, "contact");
-
-                // }
-
-                // for (int i = 0; i < ContactList.GetIndex(); i++) {
-                //     // NameArray[i]=DuplicateNameArray[i];
-                //     // PhoneNumberArray[i]=DuplicatePhoneNumber[i];
-                //     // ContactArray[i].SetName(DuplicateNameArray[i]);
-                //     // ContactArray[i].SetPhoneNumber(DuplicatePhoneNumber[i]);
-
-                //     ContactList.SetPhoneNumber(i, DuplicatePhoneNumber[i]);
-                //     ContactList.SetName(i, DuplicateNameArray[i]);
-                // }
-                    
                 System.out.print("\nDo you want to search another contact (Y/N) : ");
                 char ch = input.next().charAt(0);
                 input.nextLine();
