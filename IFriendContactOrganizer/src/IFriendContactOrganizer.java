@@ -7,27 +7,22 @@ class ContactList {
     // private int Length;
     // private int LoadFactor;
     // private int Index;
-    private Contact front;
+    private Node front;
 
-    public Contact front(){
-        return front;
-    }
-    public void front(Contact front){
-        this.front=front;
-    }
-
-    public void AddContact(Contact Conatct) {
-        // ContactListArray = new Contact[Length];
-        // this.Length = Length;
-        // this.LoadFactor = LoadFactor;
-        // Index = 0;
+    public void AddContact(Contact Contact) {
+        ContactListArray = new Contact[Length];
+        this.Length = Length;
+        this.LoadFactor = LoadFactor;
+        Index = 0;
+        Node n1 = new Node(Contact);
+        Node lNode = front;
         if(front==null){
-            front = Conatct;
+            front = n1;
         }else{
-            Contact temp = front;
-            while(temp.next()!=null){
-                temp = temp.next();
-            }temp.setnext(Conatct);
+           while(lNode.next!=null){
+            lNode=lNode.next;
+           }
+           lNode.next = n1;
         }
     }
     public String MemberIdGenarate2(){
@@ -159,18 +154,18 @@ class ContactList {
     //     leftIndex();
         
     // }
-    class Contact{
-        ContactDetails ContactDetails;
-        ContactDetails next;
+    class Node{
+        Contact Contact;
+        Node next;
 
-        contact(ContactDetails ContactDetails){
-            this.Top=ContactDetails;
+        Node(Contact Contact){
+            this.Contact=Contact;
         }
 
     }
 }
 
-class ContactDetails {
+class Contact {
     private String MemberId;
     private String Name;
     private String PhoneNumber;
@@ -189,13 +184,6 @@ class ContactDetails {
     }
 
    
-    public void setnext(Contact contact){
-        next=contact;
-    }
-    
-    public Contact next(){
-        return next;
-    }
     public String id(){
         return MemberId;
     }
