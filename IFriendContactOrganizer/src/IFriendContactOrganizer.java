@@ -10,10 +10,10 @@ class ContactList {
     private Node front;
 
     public void AddContact(Contact Contact) {
-        ContactListArray = new Contact[Length];
-        this.Length = Length;
-        this.LoadFactor = LoadFactor;
-        Index = 0;
+        // ContactListArray = new Contact[Length];
+        // this.Length = Length;
+        // this.LoadFactor = LoadFactor;
+        // Index = 0;
         Node n1 = new Node(Contact);
         Node lNode = front;
         if(front==null){
