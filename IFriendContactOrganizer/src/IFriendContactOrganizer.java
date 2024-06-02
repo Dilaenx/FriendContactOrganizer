@@ -16,6 +16,13 @@ class ContactList {
             return false;
         }
     }
+    public boolean nextIsNull(){
+        if(front.next==null){
+            return true;
+        }else{
+            return false;
+        }
+    }
 
     public void AddContact(Contact Contact) {
         // ContactListArray = new Contact[Length];
@@ -120,12 +127,12 @@ class ContactList {
 
    public void DeleteContact(int index){
     if(index==0){
-        front = front.next();
+        front = front.next;
     }else{
-        Contact temp = front;
+        Node temp = front;
         for(int i=0;i<index-1;i++){
-            temp = temp.next();
-        }temp.setnext(temp.next().next());
+            temp = temp.next;
+        }temp.next=temp.next.next;
     }
    }
    public int Size(){
@@ -1616,7 +1623,7 @@ public class IFriendContactOrganizer {
             System.out.println("|                           DELETE Contact                        |");
             System.out.println("+-----------------------------------------------------------------+");
             System.out.println("");
-            if (cList.front() == null) {
+            if (cList.isNull()) {
                 System.out.println("\tThere are no any Contacts to Update...");
                 System.out.print("\nDo you want add contact (Y/N) : ");
                 char ch = input.next().charAt(0);
@@ -1631,8 +1638,8 @@ public class IFriendContactOrganizer {
                     Exit();
 
                 }
-            }else if (cList.front().next() == null) {
-                DisplayMember(0,cList);
+            }else if (cList.nextIsNull()) {
+                cList.DisplayMember(0);
                 System.out.print("\nDo you want to delete this Contct (Y/N) : ");
             char ch = input.next().charAt(0);
             input.nextLine();
@@ -1655,7 +1662,7 @@ public class IFriendContactOrganizer {
             System.out.print("Search Contact by Name or Phone Number - ");
             String contact = input.next();
 
-            int FindMember = FindMember(contact,cList);
+            int FindMember = cList.FindMember(contact);
             if (FindMember == -1) {
                 System.out.println("\tNo contact found for " + contact + "...");
                 System.out.println("");
@@ -1678,7 +1685,7 @@ public class IFriendContactOrganizer {
                 }
 
             } else {
-                DisplayMember(FindMember,cList);
+                cList.DisplayMember(FindMember);
             
                 
             System.out.print("\nDo you want to delete this Contct (Y/N) : ");
