@@ -12,6 +12,7 @@ class AddContactForm extends JFrame{
 	private JLabel lblPhonenumber;
 	private JLabel lblSalary;
 	private JLabel lblBirthday;
+	private JLabel lblC;
 	
 	
 	private JTextField txtId;
@@ -99,6 +100,25 @@ class AddContactForm extends JFrame{
 		birthdayTextPannel.add(Birthdayy);
 		textPanel.add(birthdayTextPannel);
 		
+		lblC = new JLabel("/");
+		lblC.setFont(new Font("",1,20));
+		birthdayTextPannel.add(lblC);
+		textPanel.add(birthdayTextPannel);
+		
+		Birthdaym=new JTextField(2);
+		Birthdaym.setFont(new Font("",1,20));
+		birthdayTextPannel.add(Birthdaym);
+		textPanel.add(birthdayTextPannel);
+		
+		lblC = new JLabel("/");
+		lblC.setFont(new Font("",1,20));
+		birthdayTextPannel.add(lblC);
+		textPanel.add(birthdayTextPannel);
+		
+		Birthdayd=new JTextField(2);
+		Birthdayd.setFont(new Font("",1,20));
+		birthdayTextPannel.add(Birthdayd);
+		textPanel.add(birthdayTextPannel);
 		
 		
 		
