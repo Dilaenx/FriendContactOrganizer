@@ -641,8 +641,7 @@ public class IFriendContactOrganizer {
                     String Year = BDay.substring(0, 4);
                     String Month = BDay.substring(5, 7);
                     String day = BDay.substring(8);
-                    String Line1 = BDay.substring(4, 5);
-                    String Line2 = BDay.substring(7, 8);
+                  
                     boolean x = false;
                     int days = (Integer.parseInt(day));
                     int Months = (Integer.parseInt(Month));
@@ -811,7 +810,7 @@ public class IFriendContactOrganizer {
     public static void UpdateContact() {
         clearConsole();
         Scanner input = new Scanner(System.in);
-        L2: do {
+       do {
             clearConsole();
 
             System.out.println("+-----------------------------------------------------------------+");
