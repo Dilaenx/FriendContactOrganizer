@@ -1,6 +1,9 @@
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.*;
 class Contactmainform extends JFrame{
+	AddContactForm addContactForm;
+
 	JButton btnAddContact;
 	JButton btnSearchContact;
 	JButton btnDeleteContact;
@@ -18,6 +21,15 @@ class Contactmainform extends JFrame{
 		
 		btnAddContact=new JButton("Add Contact");
 		btnAddContact.setFont(new Font("",1,25));
+		btnAddContact.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent evt){
+					if(addContactForm==null){
+						addContactForm=new AddContactForm();
+					}
+					addContactForm.setVisible(true);
+				}
+			});
+			new AddContactForm().setVisible(true);
 		buttonPanel.add(btnAddContact);
 		
 		btnUpdateContact=new JButton("Update Contact");

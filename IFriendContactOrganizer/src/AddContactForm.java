@@ -1,5 +1,6 @@
 import javax.swing.*;
 import java.awt.*;
+
 class AddContactForm extends JFrame{
 	private JLabel titleLabel;
 	
@@ -12,13 +13,16 @@ class AddContactForm extends JFrame{
 	private JLabel lblPhonenumber;
 	private JLabel lblSalary;
 	private JLabel lblBirthday;
+	private JLabel lblC;
 	
 	
 	private JTextField txtId;
 	private JTextField txtName;
 	private JTextField txtPhonenumber;
 	private JTextField txtSalary;
-	private JTextField Birthday;
+	private JTextField Birthdayy;
+	private JTextField Birthdaym;
+	private JTextField Birthdayd;
 	
 	AddContactForm(){
 		setSize(500,300);
@@ -59,12 +63,13 @@ class AddContactForm extends JFrame{
 		labelPanel.add(lblSalary);
 		
 		lblBirthday=new JLabel("Brithday");
-		lblSalary.setFont(new Font("",1,20));
+		lblBirthday.setFont(new Font("",1,20));
 		labelPanel.add(lblBirthday);
 		
 		add("West",labelPanel);
 		
-		JPanel textPanel=new JPanel(new GridLayout(4,1));
+		JPanel textPanel=new JPanel(new GridLayout(5,1));
+		
 		txtId=new JTextField(4);
 		txtId.setFont(new Font("",1,20));
 		JPanel idTextPanel=new JPanel(new FlowLayout(FlowLayout.LEFT)); 
@@ -77,20 +82,53 @@ class AddContactForm extends JFrame{
 		nameTextPanel.add(txtName);
 		textPanel.add(nameTextPanel);
 		
-	
+		txtPhonenumber=new JTextField(10);
+		txtPhonenumber.setFont(new Font("",1,20));
+		JPanel PhonenumberTextPanel =new JPanel(new FlowLayout(FlowLayout.LEFT));
+		PhonenumberTextPanel.add(txtPhonenumber);
+		textPanel.add(PhonenumberTextPanel);
 		
-		txtSalary=new JTextField(6);
+		txtSalary=new JTextField(10);
 		txtSalary.setFont(new Font("",1,20));
 		JPanel salaryTextPanel=new JPanel(new FlowLayout(FlowLayout.LEFT)); 
 		salaryTextPanel.add(txtSalary);
 		textPanel.add(salaryTextPanel);
 		
+		JPanel birthdayTextPannel=new JPanel(new FlowLayout(FlowLayout.LEFT));
+		
+		Birthdayy=new JTextField(4);
+		Birthdayy.setFont(new Font("",1,20));
+		birthdayTextPannel.add(Birthdayy);
+		textPanel.add(birthdayTextPannel);
+		
+		lblC = new JLabel("/");
+		lblC.setFont(new Font("",1,20));
+		birthdayTextPannel.add(lblC);
+		textPanel.add(birthdayTextPannel);
+		
+		Birthdaym=new JTextField(2);
+		Birthdaym.setFont(new Font("",1,20));
+		birthdayTextPannel.add(Birthdaym);
+		textPanel.add(birthdayTextPannel);
+		
+		lblC = new JLabel("/");
+		lblC.setFont(new Font("",1,20));
+		birthdayTextPannel.add(lblC);
+		textPanel.add(birthdayTextPannel);
+		
+		Birthdayd=new JTextField(2);
+		Birthdayd.setFont(new Font("",1,20));
+		birthdayTextPannel.add(Birthdayd);
+		textPanel.add(birthdayTextPannel);
+		
+		
+		
 		add("Center",textPanel);
 	}
-}
-class AddContactForm{
+
+
 	public static void main(String args[]){
-		new AddCustomerForm().setVisible(true);
+		new AddContactForm().setVisible(true);
 	}
 }
 
