@@ -27,9 +27,16 @@ class Contactmainform extends JFrame{
 						addContactForm=new AddContactForm();
 					}
 					addContactForm.setVisible(true);
+					
 				}
 			});
-			new AddContactForm().setVisible(true);
+
+			btnAddContact.addActionListener(new ActionListener(){
+				public void actionPerformed(ActionEvent evt){
+					Contactmainform.this.dispose();
+				}
+			});
+			
 		buttonPanel.add(btnAddContact);
 		
 		btnUpdateContact=new JButton("Update Contact");

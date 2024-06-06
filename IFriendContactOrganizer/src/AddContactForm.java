@@ -1,6 +1,6 @@
 import javax.swing.*;
 import java.awt.*;
-
+import java.awt.event.*;
 class AddContactForm extends JFrame{
 	private JLabel titleLabel;
 	
@@ -41,6 +41,13 @@ class AddContactForm extends JFrame{
 		buttonPanel.add(btnAdd);
 		btnCancel=new JButton("Cancel");
 		btnCancel.setFont(new Font("",1,20));
+		btnCancel.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent evt){
+				AddContactForm.this.dispose();
+				new Contactmainform().setVisible(true);
+			}
+		});
+
 		buttonPanel.add(btnCancel);
 		add("South",buttonPanel);
 		
