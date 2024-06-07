@@ -1,8 +1,12 @@
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
+import java.util.*;
 class Contactmainform extends JFrame{
 	AddContactForm addContactForm;
+	ViewCustomerForm ViewCustomerForm;
+	public static ArrayList <Contact> ContactList=new ArrayList<>();
+	
 
 	JButton btnAddContact;
 	JButton btnSearchContact;
@@ -14,10 +18,10 @@ class Contactmainform extends JFrame{
 	Contactmainform(){
 		setTitle("Customer mgt System");
 		setSize(500,300);
-		setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
+		setDefaultCloseOperation(0);
 		setLocationRelativeTo(null);
 		
-		JPanel buttonPanel=new JPanel(new GridLayout(5,1));
+		JPanel buttonPanel=new JPanel(new GridLayout(6,1));
 		
 		btnAddContact=new JButton("Add Contact");
 		btnAddContact.setFont(new Font("",1,25));
@@ -53,7 +57,36 @@ class Contactmainform extends JFrame{
 		
 		btnViewContact=new JButton("View Contact");
 		btnViewContact.setFont(new Font("",1,25));
+
+		btnViewContact.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent evt){
+					if(ViewCustomerForm==null){
+						ViewCustomerForm=new ViewCustomerForm();
+					}
+					ViewCustomerForm.setVisible(true);
+					
+				}
+			});
+
+			btnViewContact.addActionListener(new ActionListener(){
+				public void actionPerformed(ActionEvent evt){
+					Contactmainform.this.dispose();
+				}
+			});
+
 		buttonPanel.add(btnViewContact);
+
+
+		btnExit=new JButton("Exit");
+		btnExit.setFont(new Font("",1,25));
+
+		btnExit.addActionListener(new ActionListener(){
+				public void actionPerformed(ActionEvent evt){
+					Contactmainform.this.dispose();
+				}
+			});
+
+		buttonPanel.add(btnExit);
 		
 		
 		add("Center",buttonPanel);

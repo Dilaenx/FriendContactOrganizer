@@ -2,6 +2,8 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 class AddContactForm extends JFrame{
+	public static ContactList C = new ContactList ();
+
 	private JLabel titleLabel;
 	
 	private JButton btnAdd;
@@ -11,6 +13,7 @@ class AddContactForm extends JFrame{
 	private JLabel lblId;
 	private JLabel lblName;
 	private JLabel lblPhonenumber;
+	private JLabel lblCompanyName;
 	private JLabel lblSalary;
 	private JLabel lblBirthday;
 	private JLabel lblC;
@@ -19,6 +22,7 @@ class AddContactForm extends JFrame{
 	private JTextField txtId;
 	private JTextField txtName;
 	private JTextField txtPhonenumber;
+	private JTextField txtCompanyName;
 	private JTextField txtSalary;
 	private JTextField Birthdayy;
 	private JTextField Birthdaym;
@@ -38,6 +42,24 @@ class AddContactForm extends JFrame{
 		JPanel buttonPanel=new JPanel(new FlowLayout(FlowLayout.RIGHT));
 		btnAdd=new JButton("Add");
 		btnAdd.setFont(new Font("",1,20));
+		btnAdd.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent evt){
+				String id=txtId.getText();
+				String name=txtName.getText();
+				String phonenumber=txtPhonenumber.getText();
+				String companyname=txtCompanyName.getText();
+				double salary=Double.parseDouble(txtSalary.getText());
+				String birthday=Birthdayy.getText()+"-"+Birthdaym.getText()+"-"+Birthdayd.getText();
+				Contact Contact1=new Contact(id,name,phonenumber,companyname,salary,birthday);
+				Contactmainform.ContactList.add(Contact1);
+				new addSuccessfully().main(null);
+				AddContactForm.this.dispose();
+				new AddContactForm().setVisible(true);
+				
+				
+				
+			}
+		});
 		buttonPanel.add(btnAdd);
 		btnCancel=new JButton("Cancel");
 		btnCancel.setFont(new Font("",1,20));
@@ -51,7 +73,7 @@ class AddContactForm extends JFrame{
 		buttonPanel.add(btnCancel);
 		add("South",buttonPanel);
 		
-		JPanel labelPanel=new JPanel(new GridLayout(5,1));
+		JPanel labelPanel=new JPanel(new GridLayout(6,1));
 		
 		lblId=new JLabel("Id");
 		lblId.setFont(new Font("",1,20));
@@ -64,6 +86,10 @@ class AddContactForm extends JFrame{
 		lblPhonenumber=new JLabel("PhoneNumber");
 		lblPhonenumber.setFont(new Font("",1,20));
 		labelPanel.add(lblPhonenumber);
+
+		lblCompanyName=new JLabel("CompanyName");
+		lblCompanyName.setFont(new Font("",1,20));
+		labelPanel.add(lblCompanyName);
 	
 		lblSalary=new JLabel("Salary");
 		lblSalary.setFont(new Font("",1,20));
@@ -75,7 +101,7 @@ class AddContactForm extends JFrame{
 		
 		add("West",labelPanel);
 		
-		JPanel textPanel=new JPanel(new GridLayout(5,1));
+		JPanel textPanel=new JPanel(new GridLayout(6,1));
 		
 		txtId=new JTextField(4);
 		txtId.setFont(new Font("",1,20));
@@ -94,6 +120,12 @@ class AddContactForm extends JFrame{
 		JPanel PhonenumberTextPanel =new JPanel(new FlowLayout(FlowLayout.LEFT));
 		PhonenumberTextPanel.add(txtPhonenumber);
 		textPanel.add(PhonenumberTextPanel);
+
+		txtCompanyName=new JTextField(10);
+		txtCompanyName.setFont(new Font("",1,20));
+		JPanel companyNameTextPanel=new JPanel(new FlowLayout(FlowLayout.LEFT)); 
+		companyNameTextPanel.add(txtCompanyName);
+		textPanel.add(companyNameTextPanel);
 		
 		txtSalary=new JTextField(10);
 		txtSalary.setFont(new Font("",1,20));
