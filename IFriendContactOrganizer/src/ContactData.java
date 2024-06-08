@@ -247,7 +247,7 @@ class Contact {
     public String CompanyName(){
         return CompanyName;
     }
-    public Double Salary(){
+    public String Salary(){
         return Salary;
     }
     public String Birthday(){
