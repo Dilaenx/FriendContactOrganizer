@@ -12,8 +12,24 @@ public class ContactController {
     public static boolean DeleteContact(Contact Contact){
         ContactDBConnection.getInstance().getContactList().remove(Contact);
         return true;
-    }
+    } 
     public static void updateContact(Contact Contact){
        
     }
+    //create a methode if i enter phonenumber or name then return the index of the object
+    public static int searchContact(String Contact){
+        ArrayList <Contact> contactList=ContactDBConnection.getInstance().getContactList();
+        for(int i=0;i<contactList.size();i++){
+            if(contactList.get(i).Name().equals(Contact)||contactList.get(i).PhoneNumber().equals(Contact)){
+                return i;
+            }
+        }
+        return -1;
+        
+    }
+    public static Contact getContact(int index){
+        ArrayList <Contact> contactList=ContactDBConnection.getInstance().getContactList();
+        return contactList.get(index);
+    }
+    
 }

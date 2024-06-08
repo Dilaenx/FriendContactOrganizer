@@ -1,7 +1,7 @@
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
-import java.util.*;
+
 class AddContactForm extends JFrame{
 	//public static ContactList C = new ContactList ();
 
