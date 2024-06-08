@@ -6,6 +6,7 @@ class Contactmainform extends JFrame{
 	AddContactForm addContactForm;
 	ViewCustomerForm ViewCustomerForm;
 	UpdateContactForm updateContactForm;
+	SearchContactForm searchContactForm;
 	
 
 	JButton btnAddContact;
@@ -65,6 +66,23 @@ class Contactmainform extends JFrame{
 		
 		btnSearchContact=new JButton("Search Contact");
 		btnSearchContact.setFont(new Font("",1,25));
+
+		btnSearchContact.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent evt){
+					if(searchContactForm==null){
+						searchContactForm=new SearchContactForm();
+					}
+					searchContactForm.setVisible(true);
+					
+				}
+			});
+
+			btnSearchContact.addActionListener(new ActionListener(){
+				public void actionPerformed(ActionEvent evt){
+					Contactmainform.this.dispose();
+				}
+			});
+
 		buttonPanel.add(btnSearchContact);
 		
 		btnDeleteContact=new JButton("Delete Contact");
