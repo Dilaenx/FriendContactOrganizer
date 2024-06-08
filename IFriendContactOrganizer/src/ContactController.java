@@ -31,5 +31,10 @@ public class ContactController {
         ArrayList <Contact> contactList=ContactDBConnection.getInstance().getContactList();
         return contactList.get(index);
     }
+
+    public static void updateName(int index,String newName){
+        ArrayList <Contact> contactList=ContactDBConnection.getInstance().getContactList();
+        contactList.get(index).setName(newName);
+    }
     
 }

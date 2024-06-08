@@ -39,11 +39,27 @@ UpdateContactForm(){
 		titleLabel.setFont(new Font("",1,20));
 		add("North",titleLabel);
 
-        JPanel centerPanel=new JPanel(new GridLayout(3,1));
+        JPanel centerPanel=new JPanel(new GridLayout(3,1,10,10));
 
         JPanel searchPanel=new JPanel(new FlowLayout(FlowLayout.LEFT));
 
         JPanel detailsPanel=new JPanel(new GridLayout(6,3));
+
+        JPanel buttonPanel = new JPanel(new FlowLayout(FlowLayout.CENTER));
+
+        JPanel mainMenu = new JPanel(new FlowLayout(FlowLayout.CENTER));
+
+        btnBackToMenu = new JButton("Back To Menu");
+        btnBackToMenu.setFont(new Font("",1,10));
+        mainMenu.add(btnBackToMenu);
+        btnBackToMenu.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent evt){
+				UpdateContactForm.this.dispose();
+				new Contactmainform().setVisible(true);
+			}
+		});
+
+
         
 
         
@@ -163,7 +179,77 @@ UpdateContactForm(){
                detailsPanel.revalidate();
              detailsPanel.repaint();
 
+             btnName=new JButton();
+             btnName.setText("Update Name");
+             btnName.setFont(new Font("",1,10));
+             btnName.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent evt){
+                //remove button panel buttons
+               
+                updateName(index);
+            }
+        });
+             buttonPanel.add(btnName);
+
+             btnPhonenumber=new JButton();
+             btnPhonenumber.setText("Update Phonenumber");
+             btnPhonenumber.setFont(new Font("",1,10));
+             btnPhonenumber.addActionListener(new ActionListener() {            
+            public void actionPerformed(ActionEvent evt){
+                
+            }
+        });
+             buttonPanel.add(btnPhonenumber);
+
+             btnSalary=new JButton();
+             btnSalary.setText("Update Salary Amount");
+             btnSalary.setFont(new Font("",1,10));
+             btnSalary.addActionListener(new ActionListener() {    
+            public void actionPerformed(ActionEvent evt){
+                
+            }
+        });
+             buttonPanel.add(btnSalary);
+
 			}
+
+            private void updateName(int index) {
+                buttonPanel.removeAll();
+        
+                JLabel lblNewName = new JLabel("Enter New Name:");
+                lblNewName.setHorizontalAlignment(JLabel.LEFT);
+                lblNewName.setFont(new Font("", Font.BOLD, 12));
+                buttonPanel.add(lblNewName);
+        
+                JTextField txtNewName = new JTextField(15);
+                txtNewName.setFont(new Font("", Font.PLAIN, 12));
+                buttonPanel.add(txtNewName);
+        
+                btnUpdate = new JButton("Update");
+                btnUpdate.setFont(new Font("", Font.BOLD, 12));
+                btnUpdate.addActionListener(new ActionListener() {
+                    public void actionPerformed(ActionEvent evt) {
+                        String newName = txtNewName.getText();
+                        String name=txtNewName.getText();
+                        // Update contact name in database
+                        // ...
+                        // Optionally, refresh the details panel to show updated name
+                        ContactController.updateName( index, name);
+                        
+                            JOptionPane.showMessageDialog(null, "Contact Added Successfully");
+                        
+                        
+                        
+                        UpdateContactForm.this.dispose();
+                        new UpdateContactForm().setVisible(true);
+                    }
+                });
+                buttonPanel.add(btnUpdate);
+        
+                buttonPanel.revalidate();
+                buttonPanel.repaint();
+            }
+
 		});
 
 
@@ -182,10 +268,16 @@ UpdateContactForm(){
 
 
         centerPanel.add(detailsPanel);
+        centerPanel.add(buttonPanel);   
         add("Center",centerPanel);
+        add("South",mainMenu);
+
+        
+        
 }
 public static void main(String args[]){
     new UpdateContactForm().setVisible(true);
 }
+
 
 }
