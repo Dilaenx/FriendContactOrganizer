@@ -7,6 +7,7 @@ class Contactmainform extends JFrame{
 	ViewCustomerForm ViewCustomerForm;
 	UpdateContactForm updateContactForm;
 	SearchContactForm searchContactForm;
+	DeleteContactForm deleteContactForm;
 	
 
 	JButton btnAddContact;
@@ -31,6 +32,7 @@ class Contactmainform extends JFrame{
 					if(addContactForm==null){
 						addContactForm=new AddContactForm();
 					}
+					
 					addContactForm.setVisible(true);
 					
 				}
@@ -87,6 +89,16 @@ class Contactmainform extends JFrame{
 		
 		btnDeleteContact=new JButton("Delete Contact");
 		btnDeleteContact.setFont(new Font("",1,25));
+		btnDeleteContact.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent evt){
+					if(deleteContactForm==null){
+						deleteContactForm=new DeleteContactForm();
+					}
+					deleteContactForm.setVisible(true);
+					Contactmainform.this.dispose();
+					
+				}
+			});
 		buttonPanel.add(btnDeleteContact);
 		
 		btnViewContact=new JButton("View Contact");
@@ -98,6 +110,7 @@ class Contactmainform extends JFrame{
 						ViewCustomerForm=new ViewCustomerForm();
 					}
 					ViewCustomerForm.setVisible(true);
+					
 					
 				}
 			});

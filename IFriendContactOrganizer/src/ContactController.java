@@ -47,4 +47,5 @@ public class ContactController {
         contactList.get(index).setSalary(salary);
     }
     
+    
 }
