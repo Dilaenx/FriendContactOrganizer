@@ -5,7 +5,6 @@ import java.util.*;
 class Contactmainform extends JFrame{
 	AddContactForm addContactForm;
 	ViewCustomerForm ViewCustomerForm;
-	public static ArrayList <Contact> ContactList=new ArrayList<>();
 	
 
 	JButton btnAddContact;

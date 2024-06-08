@@ -34,19 +34,24 @@ class ViewCustomerForm extends JFrame{
 		JPanel buttonPanel=new JPanel(); //Default layout ->JPanel --FlowLAyout
 		btnReload=new JButton("Reload");
 		btnReload.setFont(new Font("",1,20));
+		
         btnReload.addActionListener(new ActionListener(){
-			int count=0;
             public void actionPerformed(ActionEvent evt){
-				if(count==0){
-					for(int i =0;i<Contactmainform.ContactList.size();i++){
-						Contact Contact = Contactmainform.ContactList.get(i);
+				// ContactDBConnection custDBC=ContactDBConnection.getInstance();
+				// ArrayList<Contact> custList=custDBC.getContatList();
+				ArrayList<Contact> custList=ContactDBConnection.getInstance().getContactList();
+				dtm.setRowCount(0);
+				
+					for(int i =0;i<custList.size();i++){
+						Contact Contact = custList.get(i);
 						Object[] rowDat ={Contact.id(),Contact.Name(),Contact.PhoneNumber(),Contact.CompanyName(),Contact.Salary(),Contact.Birthday()};
 						dtm.addRow(rowDat);
-						count++;
+						
 					}
-				}
+				
                 }           
         });
+
 		buttonPanel.add(btnReload);
 
 		btnMainMenu=new JButton("Main Menu");

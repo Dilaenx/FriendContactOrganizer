@@ -1,8 +1,9 @@
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
+import java.util.*;
 class AddContactForm extends JFrame{
-	public static ContactList C = new ContactList ();
+	//public static ContactList C = new ContactList ();
 
 	private JLabel titleLabel;
 	
@@ -50,14 +51,27 @@ class AddContactForm extends JFrame{
 				String companyname=txtCompanyName.getText();
 				double salary=Double.parseDouble(txtSalary.getText());
 				String birthday=Birthdayy.getText()+"-"+Birthdaym.getText()+"-"+Birthdayd.getText();
-				Contact Contact1=new Contact(id,name,phonenumber,companyname,salary,birthday);
-				Contactmainform.ContactList.add(Contact1);
-				new addSuccessfully().main(null);
+				if(ContactValidation.ValidatePhoneNumber(phonenumber)==-1){
+					JOptionPane.showMessageDialog(null, "Invalid Phone Number");
+					return;
+				}else if(ContactValidation.ValidatePhoneNumber(phonenumber)==0){
+					JOptionPane.showMessageDialog(null, "Phone Number Already Exists");
+					return;
+				}else if(!ContactValidation.ValidateBithdate(birthday)){
+						JOptionPane.showMessageDialog(null, "Invalid Birthdate");
+						return;
+					}else{
+				
+				Contact Contact=new Contact(id,name,phonenumber,companyname,salary,birthday);
+				boolean isAdded=ContactController.addContact(Contact);
+				if(isAdded){
+					JOptionPane.showMessageDialog(null, "Contact Added Successfully");
+				}
+				
+				
 				AddContactForm.this.dispose();
 				new AddContactForm().setVisible(true);
-				
-				
-				
+				}
 			}
 		});
 		buttonPanel.add(btnAdd);
