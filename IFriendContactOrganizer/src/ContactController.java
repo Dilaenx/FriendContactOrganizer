@@ -36,5 +36,15 @@ public class ContactController {
         ArrayList <Contact> contactList=ContactDBConnection.getInstance().getContactList();
         contactList.get(index).setName(newName);
     }
+
+    public static void updatePhoneNumber(int index,String newPhoneNumber){
+        ArrayList <Contact> contactList=ContactDBConnection.getInstance().getContactList();
+        contactList.get(index).setPhoneNumber(newPhoneNumber);
+    }
+
+    public static void updateSalary(int index,double salary){
+        ArrayList <Contact> contactList=ContactDBConnection.getInstance().getContactList();
+        contactList.get(index).setSalary(salary);
+    }
     
 }

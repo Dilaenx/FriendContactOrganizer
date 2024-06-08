@@ -39,7 +39,7 @@ UpdateContactForm(){
 		titleLabel.setFont(new Font("",1,20));
 		add("North",titleLabel);
 
-        JPanel centerPanel=new JPanel(new GridLayout(3,1,10,10));
+        JPanel centerPanel=new JPanel(new GridLayout(3,1));
 
         JPanel searchPanel=new JPanel(new FlowLayout(FlowLayout.LEFT));
 
@@ -196,7 +196,7 @@ UpdateContactForm(){
              btnPhonenumber.setFont(new Font("",1,10));
              btnPhonenumber.addActionListener(new ActionListener() {            
             public void actionPerformed(ActionEvent evt){
-                
+                updatePhonenumber(index);
             }
         });
              buttonPanel.add(btnPhonenumber);
@@ -206,7 +206,7 @@ UpdateContactForm(){
              btnSalary.setFont(new Font("",1,10));
              btnSalary.addActionListener(new ActionListener() {    
             public void actionPerformed(ActionEvent evt){
-                
+                updateSalary(index);
             }
         });
              buttonPanel.add(btnSalary);
@@ -229,7 +229,7 @@ UpdateContactForm(){
                 btnUpdate.setFont(new Font("", Font.BOLD, 12));
                 btnUpdate.addActionListener(new ActionListener() {
                     public void actionPerformed(ActionEvent evt) {
-                        String newName = txtNewName.getText();
+                       
                         String name=txtNewName.getText();
                         // Update contact name in database
                         // ...
@@ -246,6 +246,83 @@ UpdateContactForm(){
                 });
                 buttonPanel.add(btnUpdate);
         
+                buttonPanel.revalidate();
+                buttonPanel.repaint();
+            }
+
+            private void updatePhonenumber(int index) {
+                buttonPanel.removeAll();
+                JLabel lblNewPhonenumber = new JLabel("Enter New Phonenumber:");
+                lblNewPhonenumber.setHorizontalAlignment(JLabel.LEFT);
+                lblNewPhonenumber.setFont(new Font("", Font.BOLD, 12));
+                buttonPanel.add(lblNewPhonenumber);
+                JTextField txtNewPhonenumber = new JTextField(15);
+                txtNewPhonenumber.setFont(new Font("", Font.PLAIN, 12));
+                
+                
+
+
+
+                buttonPanel.add(txtNewPhonenumber);
+                btnUpdate = new JButton("Update");
+                btnUpdate.setFont(new Font("", Font.BOLD, 12));
+                btnUpdate.addActionListener(new ActionListener() {  
+                    public void actionPerformed(ActionEvent evt) {
+                        String newPhonenumber = txtNewPhonenumber.getText();
+                        if(ContactValidation.ValidatePhoneNumber(newPhonenumber)==-1){
+                            JOptionPane.showMessageDialog(null, "Invalid Phone Number");
+                            return;
+                        }else if(ContactValidation.ValidatePhoneNumber(newPhonenumber)==0){
+                            JOptionPane.showMessageDialog(null, "Phone Number Already Exists");
+                            return;
+                        }
+                        // Update contact name in database
+                        // ...
+                        // Optionally, refresh the details panel to show updated name
+                        ContactController.updatePhoneNumber( index, newPhonenumber);
+                        
+                            JOptionPane.showMessageDialog(null, "Contact Added Successfully");
+                        
+                        
+                        
+                        UpdateContactForm.this.dispose();
+                        new UpdateContactForm().setVisible(true);
+                    }
+                });
+                buttonPanel.add(btnUpdate);
+                buttonPanel.revalidate();
+                buttonPanel.repaint();
+            }
+
+            private void updateSalary(int index) {
+                buttonPanel.removeAll();
+                JLabel lblNewSalary = new JLabel("Enter New Salary:");
+                lblNewSalary.setHorizontalAlignment(JLabel.LEFT);
+                lblNewSalary.setFont(new Font("", Font.BOLD, 12));
+                buttonPanel.add(lblNewSalary);
+                JTextField txtNewSalary = new JTextField(15);
+                txtNewSalary.setFont(new Font("", Font.PLAIN, 12));
+                buttonPanel.add(txtNewSalary);
+                btnUpdate = new JButton("Update");
+                btnUpdate.setFont(new Font("", Font.BOLD, 12));
+                btnUpdate.addActionListener(new ActionListener() {  
+                    public void actionPerformed(ActionEvent evt) {
+                       
+                        // Update contact name in database
+                        // ...
+                        // Optionally, refresh the details panel to show updated name
+                        double salary=Double.parseDouble(txtNewSalary.getText());
+                        ContactController.updateSalary( index, salary);
+                        
+                            JOptionPane.showMessageDialog(null, "Contact Added Successfully");
+                        
+                        
+                        
+                        UpdateContactForm.this.dispose();
+                        new UpdateContactForm().setVisible(true);
+                    }
+                });
+                buttonPanel.add(btnUpdate);
                 buttonPanel.revalidate();
                 buttonPanel.repaint();
             }
