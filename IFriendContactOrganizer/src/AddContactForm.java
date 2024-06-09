@@ -20,7 +20,7 @@ class AddContactForm extends JFrame{
 	private JLabel lblC;
 	
 	
-	private JTextField txtId;
+	private JLabel txtId;
 	private JTextField txtName;
 	private JTextField txtPhonenumber;
 	private JTextField txtCompanyName;
@@ -117,7 +117,7 @@ class AddContactForm extends JFrame{
 		
 		JPanel textPanel=new JPanel(new GridLayout(6,1));
 		
-		txtId=new JTextField(4);
+		txtId=new JLabel(ContactController.mid());
 		txtId.setFont(new Font("",1,20));
 		JPanel idTextPanel=new JPanel(new FlowLayout(FlowLayout.LEFT)); 
 		idTextPanel.add(txtId);
